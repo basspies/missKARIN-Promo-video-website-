@@ -1,0 +1,7 @@
+.cms-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.cms-content{
+}
