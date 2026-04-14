@@ -1,0 +1,165 @@
+/* ── Reset & Base ───────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Segoe UI', Arial, sans-serif; color: #333; background: #f0f0f0; min-height: 100vh; }
+
+/* ── Design Tokens ──────────────────────────── */
+:root {
+  --teal:      #2cbfaf;
+  --teal-dark: #22a89a;
+  --dark:      #2d2d2d;
+  --gray:      #f6f6f6;
+  --text:      #555;
+  --border:    #d0d0d0;
+}
+
+/* ── Shared Button ──────────────────────────── */
+.btn {
+  display: inline-block; background: var(--teal); color: #fff;
+  padding: 11px 26px; border-radius: 4px; text-decoration: none;
+  font-weight: 600; font-size: 0.9rem; border: none; cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+}
+.btn:hover { background: var(--teal-dark); transform: translateY(-2px); }
+
+/* ── Header / Nav ───────────────────────────── */
+header {
+  background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+nav {
+  max-width: 1080px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 20px; flex-wrap: wrap; gap: 10px;
+}
+.logo {
+  font-size: 1.45rem; font-weight: 400; color: var(--dark);
+  text-decoration: none; letter-spacing: -0.5px;
+}
+.logo strong { color: var(--teal); font-weight: 800; }
+.nav-links { list-style: none; display: flex; gap: 22px; flex-wrap: wrap; }
+.nav-links a {
+  text-decoration: none; color: #444; font-size: 0.88rem; font-weight: 500;
+  transition: color 0.2s; padding: 2px 0; border-bottom: 2px solid transparent;
+}
+.nav-links a:hover { color: var(--teal); border-bottom-color: var(--teal); }
+
+/* ── Page Layout ────────────────────────────── */
+.page-wrapper {
+  min-height: calc(100vh - 60px);
+  display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+}
+
+/* ── Left: Background image side ───────────── */
+.form-bg {
+  position: relative; overflow: hidden;
+  min-height: 520px;
+}
+.form-bg img {
+  width: 100%; height: 100%; object-fit: cover;
+  filter: brightness(0.55);
+}
+.form-bg-placeholder {
+  width: 100%; height: 100%; min-height: 520px;
+  background: linear-gradient(135deg, #1a8a7e, #2cbfaf);
+  display: flex; align-items: center; justify-content: center;
+}
+.form-bg-overlay {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column;
+  align-items: flex-start; justify-content: center;
+  padding: 48px;
+}
+.form-bg-overlay h2 {
+  font-size: 2.2rem; font-weight: 900; color: #fff;
+  line-height: 1.1; margin-bottom: 16px;
+  text-transform: uppercase; letter-spacing: 1px;
+}
+.form-bg-overlay p { color: rgba(255,255,255,0.85); font-size: 0.93rem; line-height: 1.7; }
+
+/* ── Right: Form side ───────────────────────── */
+.form-side {
+  background: #2d2d2d; padding: 48px 44px;
+  display: flex; flex-direction: column; justify-content: center;
+}
+.form-side h1 {
+  background: var(--teal); color: #fff;
+  font-size: 1.05rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 1px; padding: 14px 20px; margin-bottom: 28px;
+  border-radius: 3px; text-align: center;
+}
+
+/* ── Form Elements ──────────────────────────── */
+.form-group { margin-bottom: 14px; }
+.form-group label {
+  display: block; color: #ccc; font-size: 0.82rem;
+  font-weight: 600; margin-bottom: 5px;
+}
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%; padding: 10px 12px;
+  background: #fff; border: 1px solid var(--border);
+  border-radius: 3px; font-size: 0.88rem; color: var(--dark);
+  font-family: inherit; transition: border-color 0.2s, box-shadow 0.2s;
+  outline: none;
+}
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  border-color: var(--teal);
+  box-shadow: 0 0 0 3px rgba(44,191,175,0.18);
+}
+.form-group textarea { resize: vertical; min-height: 90px; }
+
+.form-row {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+}
+.form-row-3 {
+  display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 12px;
+}
+
+.form-submit {
+  margin-top: 10px; text-align: center;
+}
+.form-submit button {
+  width: 100%; padding: 13px; background: var(--teal);
+  color: #fff; border: none; border-radius: 4px; cursor: pointer;
+  font-size: 1rem; font-weight: 700; letter-spacing: 0.5px;
+  transition: background 0.2s, transform 0.15s;
+}
+.form-submit button:hover { background: var(--teal-dark); transform: translateY(-2px); }
+
+.back-link {
+  display: block; text-align: center; margin-top: 14px;
+  color: #aaa; font-size: 0.82rem; text-decoration: none;
+  transition: color 0.2s;
+}
+.back-link:hover { color: var(--teal); }
+
+/* ── Thank You state ────────────────────────── */
+#thank-you {
+  display: none; text-align: center; padding: 40px 0;
+}
+#thank-you .checkmark { font-size: 3rem; margin-bottom: 16px; }
+#thank-you h3 { color: #fff; font-size: 1.2rem; margin-bottom: 10px; }
+#thank-you p { color: #aaa; font-size: 0.88rem; }
+
+/* ── Footer ─────────────────────────────────── */
+footer {
+  background: #1e1e1e; color: #888;
+  padding: 18px 20px; text-align: center; font-size: 0.78rem;
+}
+
+/* ── Responsive ─────────────────────────────── */
+@media (max-width: 820px) {
+  .page-wrapper { grid-template-columns: 1fr; }
+  .form-bg { min-height: 260px; }
+  .form-bg-overlay { padding: 30px; }
+  .form-bg-overlay h2 { font-size: 1.6rem; }
+  .form-side { padding: 36px 24px; }
+  .form-row, .form-row-3 { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  nav { justify-content: center; }
+  .nav-links { justify-content: center; gap: 14px; }
+}

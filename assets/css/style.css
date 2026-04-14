@@ -1,0 +1,260 @@
+/* ── Reset & Base ───────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Segoe UI', Arial, sans-serif; color: #333; background: #fff; line-height: 1.6; }
+
+/* ── Design Tokens ──────────────────────────── */
+:root {
+  --teal:      #2cbfaf;
+  --teal-dark: #22a89a;
+  --dark:      #2d2d2d;
+  --gray:      #f6f6f6;
+  --text:      #555;
+  --border:    #e2e2e2;
+}
+
+/* ── Utilities ──────────────────────────────── */
+.container { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+.btn {
+  display: inline-block; background: var(--teal); color: #fff;
+  padding: 11px 26px; border-radius: 4px; text-decoration: none;
+  font-weight: 600; font-size: 0.9rem; border: none; cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+}
+.btn:hover { background: var(--teal-dark); transform: translateY(-2px); }
+.btn-outline {
+  background: transparent; color: var(--teal);
+  border: 2px solid var(--teal);
+}
+.btn-outline:hover { background: var(--teal); color: #fff; }
+.section-title {
+  text-align: center; font-size: 1.55rem; font-weight: 800;
+  color: var(--dark); text-transform: uppercase; letter-spacing: 1.5px;
+  margin-bottom: 8px;
+}
+.section-subtitle {
+  text-align: center; color: var(--text); font-size: 0.93rem;
+  max-width: 640px; margin: 0 auto 40px;
+}
+.teal-band {
+  background: var(--teal); padding: 18px 20px; text-align: center;
+}
+.teal-band h2 {
+  color: #fff; font-size: 1.3rem; font-weight: 800;
+  text-transform: uppercase; letter-spacing: 2px;
+}
+.teal-band p { color: rgba(255,255,255,0.9); font-size: 0.9rem; margin-top: 4px; }
+.img-fill { width: 100%; height: 100%; object-fit: cover; display: block; }
+.placeholder {
+  width: 100%; height: 100%; background: #b2ddd8;
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-size: 0.85rem; font-weight: 600; text-align: center;
+  padding: 12px;
+}
+
+/* ── Header / Nav ───────────────────────────── */
+header {
+  position: sticky; top: 0; z-index: 200;
+  background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+nav {
+  max-width: 1080px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 20px; flex-wrap: wrap; gap: 10px;
+}
+.logo {
+  font-size: 1.45rem; font-weight: 400; color: var(--dark);
+  text-decoration: none; letter-spacing: -0.5px;
+}
+.logo strong { color: var(--teal); font-weight: 800; }
+.nav-links { list-style: none; display: flex; gap: 22px; flex-wrap: wrap; }
+.nav-links a {
+  text-decoration: none; color: #444; font-size: 0.88rem; font-weight: 500;
+  transition: color 0.2s; padding: 2px 0; border-bottom: 2px solid transparent;
+}
+.nav-links a:hover { color: var(--teal); border-bottom-color: var(--teal); }
+
+/* ── Hero ───────────────────────────────────── */
+#home { background: var(--gray); padding: 60px 20px; }
+.hero-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 48px; align-items: center;
+}
+.hero-text h1 {
+  font-size: 2.8rem; font-weight: 900; color: var(--dark);
+  line-height: 1.05; margin-bottom: 22px;
+}
+.hero-text h1 span { color: var(--teal); }
+.hero-list { list-style: none; margin-bottom: 28px; }
+.hero-list li {
+  color: var(--text); font-size: 0.93rem; padding: 3px 0;
+}
+.hero-list li::before { content: "→ "; color: var(--teal); font-weight: 700; }
+.hero-img { border-radius: 8px; overflow: hidden; height: 340px; }
+
+/* ── Aanbod / Services ──────────────────────── */
+#inburgering { padding: 64px 20px; background: #fff; }
+.services-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px 40px;
+}
+.service-card { padding: 22px 0; border-bottom: 1px solid var(--border); }
+.service-card:nth-last-child(-n+2) { border-bottom: none; }
+.service-card h3 {
+  font-size: 0.92rem; font-weight: 800; text-transform: uppercase;
+  letter-spacing: 0.8px; color: var(--dark); margin-bottom: 8px;
+}
+.service-card p { font-size: 0.88rem; color: var(--text); line-height: 1.65; }
+
+/* ── Garanties ──────────────────────────────── */
+#garanties { background: var(--teal); padding: 44px 20px; }
+.guarantees-grid {
+  display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px;
+  text-align: center;
+}
+.guarantee-item { color: #fff; }
+.guarantee-item .gicon { font-size: 1.8rem; margin-bottom: 8px; display: block; }
+.guarantee-item p { font-size: 0.78rem; line-height: 1.35; }
+
+/* ── Video / Image strip ────────────────────── */
+.img-strip { height: 360px; overflow: hidden; position: relative; }
+.img-strip img { width: 100%; height: 100%; object-fit: cover; }
+.img-strip-caption {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  background: linear-gradient(transparent, rgba(0,0,0,0.55));
+  color: #fff; padding: 20px 28px 16px; font-size: 0.88rem;
+}
+
+/* ── Prijzen ────────────────────────────────── */
+#prijzen { padding: 64px 20px; background: #fff; }
+.prices-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px;
+  margin-bottom: 36px;
+}
+.price-card {
+  border: 1px solid var(--border); border-radius: 6px;
+  padding: 28px 22px; display: flex; flex-direction: column;
+  transition: box-shadow 0.2s, transform 0.15s;
+}
+.price-card:hover { box-shadow: 0 6px 24px rgba(44,191,175,0.18); transform: translateY(-3px); }
+.price-card h3 {
+  font-size: 0.9rem; font-weight: 800; text-transform: uppercase;
+  letter-spacing: 0.7px; color: var(--dark); margin-bottom: 4px;
+}
+.price-tag { font-size: 0.78rem; color: var(--teal); margin-bottom: 14px; font-weight: 600; }
+.price-card p { font-size: 0.85rem; color: var(--text); line-height: 1.6; margin-bottom: 14px; }
+.price-features { list-style: none; margin-bottom: 18px; flex: 1; }
+.price-features li {
+  font-size: 0.84rem; color: var(--text);
+  padding: 5px 0; border-bottom: 1px solid #f0f0f0;
+}
+.price-features li::before { content: "✓ "; color: var(--teal); font-weight: 700; }
+.price-amount { font-size: 1.7rem; font-weight: 800; color: var(--dark); margin-bottom: 4px; }
+.price-note { font-size: 0.73rem; color: #999; margin-bottom: 20px; }
+.inco-box {
+  background: var(--gray); border-radius: 6px;
+  padding: 34px; text-align: center; max-width: 680px; margin: 0 auto;
+}
+.inco-box h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 10px; }
+.inco-box p { font-size: 0.88rem; color: var(--text); line-height: 1.65; margin-bottom: 20px; }
+
+/* ── Taalles ────────────────────────────────── */
+#integratie { background: #fff; }
+.taalles-split {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+}
+.split-img { overflow: hidden; min-height: 340px; }
+.split-text { padding: 48px 44px; display: flex; flex-direction: column; justify-content: center; }
+.split-text h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 14px; color: var(--dark); }
+.split-text p { font-size: 0.88rem; color: var(--text); line-height: 1.7; }
+.niveau-table { padding: 44px; }
+.niveau-table h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 18px; color: var(--dark); }
+.niveau-row {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 9px 0; border-bottom: 1px solid var(--border);
+}
+.niveau-label { font-size: 0.88rem; font-weight: 600; color: var(--dark); }
+.niveau-btn {
+  background: var(--teal); color: #fff; padding: 4px 14px;
+  border-radius: 3px; text-decoration: none; font-size: 0.77rem;
+  font-weight: 600; transition: background 0.2s;
+}
+.niveau-btn:hover { background: var(--teal-dark); }
+.schedule-box {
+  background: var(--teal); color: #fff;
+  padding: 14px 18px; border-radius: 4px;
+  font-size: 0.84rem; line-height: 1.7; margin-top: 18px;
+  text-align: center;
+}
+
+/* ── Begeleiding ────────────────────────────── */
+#begeleiding { background: var(--gray); }
+.begel-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: center;
+}
+.begel-imgs {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 4px; height: 290px;
+}
+.begel-img { overflow: hidden; border-radius: 4px; }
+.begel-text h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 14px; color: var(--dark); }
+.begel-text p { font-size: 0.88rem; color: var(--text); line-height: 1.7; margin-bottom: 20px; }
+
+/* ── Contact ────────────────────────────────── */
+#contact { padding: 64px 20px; background: #fff; }
+.contact-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start;
+}
+.contact-info-box { background: var(--teal); color: #fff; padding: 32px; border-radius: 6px; }
+.contact-info-box h3 { font-size: 1rem; font-weight: 700; margin-bottom: 14px; }
+.contact-info-box p { font-size: 0.88rem; line-height: 1.9; }
+.map-placeholder {
+  height: 200px; background: #d2eeeb; border-radius: 6px; margin-bottom: 16px;
+  display: flex; align-items: center; justify-content: center;
+  color: #666; font-size: 0.88rem;
+}
+.contact-cta-box {
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center; gap: 18px; padding: 20px;
+}
+.contact-cta-box p { color: var(--text); font-size: 0.95rem; line-height: 1.65; }
+
+/* ── Footer ─────────────────────────────────── */
+footer { background: #1e1e1e; color: #999; padding: 36px 20px; }
+.footer-inner {
+  max-width: 1080px; margin: 0 auto;
+  display: flex; flex-wrap: wrap; gap: 28px;
+  justify-content: space-between; align-items: center;
+}
+.footer-brand p:first-child {
+  font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: 4px;
+}
+.footer-brand p { font-size: 0.8rem; }
+.footer-logos { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+.logo-badge {
+  background: #333; color: #bbb; padding: 7px 14px;
+  border-radius: 4px; font-size: 0.75rem; font-weight: 700;
+}
+.footer-bottom {
+  max-width: 1080px; margin: 20px auto 0;
+  padding-top: 16px; border-top: 1px solid #333;
+  font-size: 0.75rem; text-align: center;
+}
+
+/* ── Responsive ─────────────────────────────── */
+@media (max-width: 900px) {
+  .hero-grid, .services-grid, .prices-grid,
+  .taalles-split, .begel-grid, .contact-grid {
+    grid-template-columns: 1fr;
+  }
+  .guarantees-grid { grid-template-columns: repeat(3, 1fr); }
+  .hero-text h1 { font-size: 2rem; }
+  .hero-img { height: 260px; }
+  .split-text, .niveau-table { padding: 30px 20px; }
+}
+@media (max-width: 560px) {
+  .guarantees-grid { grid-template-columns: repeat(2, 1fr); }
+  nav { justify-content: center; }
+  .nav-links { justify-content: center; gap: 14px; }
+  .prices-grid { grid-template-columns: 1fr; }
+  .begel-imgs { height: 200px; }
+}
