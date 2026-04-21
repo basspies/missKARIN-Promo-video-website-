@@ -1,5 +1,5 @@
 <?php
-include '../assets/includes/conn.php';
+include '../includes/conn.php';
 
 try {
     $tableName = 'taallessen'; // change this to your actual table name
