@@ -2,7 +2,7 @@
 include '../includes/conn.php';
 
 try {
-    $tableName = 'taallessen'; // change this to your actual table name
+    $tableName = 'taallessen'; 
     $stmt = $conn->prepare("SELECT id, name, price, description FROM $tableName");
     $stmt->execute();
     $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -20,7 +20,7 @@ try {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="./cms.css">
   <title>CMS Dashboard</title>
 </head>
 

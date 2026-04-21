@@ -5,7 +5,7 @@ if (isset($_GET['id'])) {
     $id = $_GET['id'];
 
     try {
-        $tableName = 'taallessen'; // change this to your actual table name
+        $tableName = 'taallessen'; 
         $stmt = $conn->prepare("DELETE FROM $tableName WHERE id = ?");
         $stmt->execute([$id]);
 
