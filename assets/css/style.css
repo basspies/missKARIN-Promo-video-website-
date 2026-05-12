@@ -134,20 +134,25 @@ header {
 }
 
 nav {
-  max-width: 1080px;
+  background-color: #35bcaf;
+  max-width: 100%;
   margin: 0 auto;
   display: flex;
   align-items: center;
-  justify-content: space-between;
   padding: 14px 20px;
   flex-wrap: wrap;
   gap: 10px;
+  justify-content: space-evenly;
+}
+
+.logo{
+  display: flex;
 }
 
 .logo img {
-  height: 80px;
-  width: auto;
+  height: 85px;
   display: block;
+  
 }
 
 .nav-links {
@@ -168,8 +173,8 @@ nav {
 }
 
 .nav-links a:hover {
-  color: var(--teal);
-  border-bottom-color: var(--teal);
+  color: var(--text);
+  border-bottom-color: var(--text);
 }
 
 /* ── Hero ───────────────────────────────────── */
