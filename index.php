@@ -24,42 +24,11 @@
 </header>
 
 <!-- ══════════ HERO ══════════ -->
-<section id="home">
-  <div class="container">
-    <div class="hero-grid">
-      <div class="hero-text">
-        <h1>WELKOM<br>bij miss<span>KARIN</span></h1>
-        <ul class="hero-list">
-          <li>Persoonlijk en betaalbaar</li>
-          <li>Kwalitatief bewezen aanpak</li>
-          <li>Kleine klassen, flexibele tijden</li>
-          <li>DNA &amp; KNM combinatie mogelijk</li>
-          <li>Enthousiaste, erkende trainers</li>
-          <li>Examengarantie inbegrepen</li>
-          <li>Milieuvriendelijke aanpak</li>
-        </ul>
-        <a href="contact.html" class="btn">Neem contact op</a>
-      </div>
-      <div class="hero-img">
-        <img class="img-fill"
-             src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=700&h=380&fit=crop&auto=format"
-             alt="missKARIN groepsfoto"
-             onerror="this.outerHTML='<div class=\'placeholder\'>Groepsfoto missKARIN</div>'">
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══════════ OVER MISSKARIN ══════════ -->
-<section id="over-misskarin" style="padding:52px 20px; background:#fff;">
-  <div class="container">
-    <h2 class="section-title">Over missKARIN</h2>
-    <p class="section-subtitle">
-      missKARIN biedt kwalitatieve Nederlandse taallessen en inburgeringscursussen aan voor mensen die Nederland beter willen leren kennen. Ons team van ervaren, enthousiaste docenten helpt u stap voor stap vooruit — op uw eigen tempo en niveau.<br><br>
-      Heeft u vragen of weet u niet hoe het NT2-traject in zijn werk gaat? Neem gerust contact op voor een <strong>gratis adviesgesprek</strong>. We vertellen u alles over de mogelijkheden.
-    </p>
-  </div>
-</section>
+<h2 class="section-title">Over missKARIN</h2>
+<p class="section-subtitle">
+  missKARIN biedt kwalitatieve Nederlandse taallessen en inburgeringscursussen aan voor mensen die Nederland beter willen leren kennen. Ons team van ervaren, enthousiaste docenten helpt u stap voor stap vooruit — op uw eigen tempo en niveau.<br><br>
+  Heeft u vragen of weet u niet hoe het NT2-traject in zijn werk gaat? Neem gerust contact op voor een <strong>gratis adviesgesprek</strong>. We vertellen u alles over de mogelijkheden.
+</p>
 
 <!-- ══════════ AANBOD ══════════ -->
 <div class="teal-band" style="border-top:1px solid rgba(0,0,0,0.05);">
@@ -151,54 +120,7 @@
     </p>
     <div class="prices-grid">
 
-      <!-- Inburgering -->
-      <div class="price-card">
-        <h3>Inburgering</h3>
-        <div class="price-tag">Complete cursus</div>
-        <p>Volledige inburgeringscursus inclusief taalles, KNM &amp; DNA modules en examenvoorbereiding. Erkend door de Rijksoverheid.</p>
-        <ul class="price-features">
-          <li>Taalles op niveau (A1–B1)</li>
-          <li>KNM &amp; DNA modules</li>
-          <li>Examenvoorbereiding</li>
-          <li>Persoonlijke begeleiding</li>
-          <li>Examengarantie</li>
-        </ul>
-        <div class="price-amount">€ 1.095,-</div>
-        <div class="price-note">per module · inclusief lesmateriaal</div>
-        <a href="contact.html" class="btn">Aanmelden</a>
-      </div>
-
-      <!-- DNA of KNM -->
-      <div class="price-card">
-        <h3>DNA of KNM Module</h3>
-        <div class="price-tag">Losse module</div>
-        <p>Volg alleen de DNA- of KNM-module. Perfect als u al een deel van het inburgeringstraject hebt afgerond.</p>
-        <ul class="price-features">
-          <li>Volledige module-inhoud</li>
-          <li>Groepslessen</li>
-          <li>Examengarantie</li>
-          <li>Studiemateriaal inbegrepen</li>
-        </ul>
-        <div class="price-amount">€ 1.295,-</div>
-        <div class="price-note">per module · inclusief lesmateriaal</div>
-        <a href="contact.html" class="btn">Aanmelden</a>
-      </div>
-
-      <!-- Privéles -->
-      <div class="price-card">
-        <h3>Privéles of Examentraining</h3>
-        <div class="price-tag">Individueel / per uur</div>
-        <p>Voor wie individuele begeleiding wil of intensief wil trainen voor het examen. Op uw eigen tempo en niveau.</p>
-        <ul class="price-features">
-          <li>1-op-1 begeleiding</li>
-          <li>Flexibele tijden</li>
-          <li>Gericht op uw zwakke punten</li>
-          <li>Spreken, lezen of schrijven</li>
-        </ul>
-        <div class="price-amount">€ 45,-</div>
-        <div class="price-note">per uur</div>
-        <a href="contact.html" class="btn">Aanmelden</a>
-      </div>
+      <?php include 'assets/cms/pricecards_output.php'; ?>
 
     </div>
 
