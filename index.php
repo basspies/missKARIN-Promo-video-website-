@@ -1,3 +1,14 @@
+<?php
+require __DIR__ . '/assets/includes/conn.php';
+
+try {
+    $courses = $conn->query('SELECT id, name, price, description FROM taallessen ORDER BY id')
+                    ->fetchAll(PDO::FETCH_ASSOC);
+} catch (PDOException $e) {
+    $courses = [];
+    error_log('DB query failed: ' . $e->getMessage());
+}
+?>
 <!DOCTYPE html>
 <html lang="nl">
 <head>
@@ -18,7 +29,7 @@
       <li><a href="#inburgering">Inburgering</a></li>
       <li><a href="#integratie">Integratie</a></li>
       <li><a href="#begeleiding">Begeleiding</a></li>
-      <li><a href="contact.html">Contact</a></li>
+      <li><a href="contact.php">Contact</a></li>
     </ul>
   </nav>
 </header>
@@ -38,7 +49,7 @@
           <li>Examengarantie inbegrepen</li>
           <li>Milieuvriendelijke aanpak</li>
         </ul>
-        <a href="contact.html" class="btn">Neem contact op</a>
+        <a href="contact.php" class="btn">Neem contact op</a>
       </div>
       <div class="hero-img">
         <img class="img-fill"
@@ -85,7 +96,7 @@
         <p>Kennis van de Nederlandse Maatschappij. Alles wat u moet weten om te integreren in Nederland en succesvol aan de samenleving deel te nemen. Na het examen kunt u een erkend diploma halen.</p>
       </div>
       <div class="service-card">
-        <h3>DNA Module</h3>
+        <h3>ONA Module</h3>
         <p>Oriëntatie op de Nederlandse Arbeidsmarkt. Speciaal voor wie wil werken in Nederland en loopbaanmogelijkheden wil verkennen. We begeleiden u bij uw zoektocht naar passend werk.</p>
       </div>
       <div class="service-card">
@@ -165,7 +176,7 @@
         </ul>
         <div class="price-amount">€ 1.095,-</div>
         <div class="price-note">per module · inclusief lesmateriaal</div>
-        <a href="contact.html" class="btn">Aanmelden</a>
+        <a href="contact.php" class="btn">Aanmelden</a>
       </div>
 
       <!-- DNA of KNM -->
@@ -181,7 +192,7 @@
         </ul>
         <div class="price-amount">€ 1.295,-</div>
         <div class="price-note">per module · inclusief lesmateriaal</div>
-        <a href="contact.html" class="btn">Aanmelden</a>
+        <a href="contact.php" class="btn">Aanmelden</a>
       </div>
 
       <!-- Privéles -->
@@ -197,7 +208,7 @@
         </ul>
         <div class="price-amount">€ 45,-</div>
         <div class="price-note">per uur</div>
-        <a href="contact.html" class="btn">Aanmelden</a>
+        <a href="contact.php" class="btn">Aanmelden</a>
       </div>
 
     </div>
@@ -206,7 +217,7 @@
     <div class="inco-box">
       <h3>In-company trainingen</h3>
       <p>Voor bedrijven met internationale medewerkers bieden wij maatwerk taaltrainingen aan op locatie. Neem contact op via mail of telefoon om de mogelijkheden te bespreken.</p>
-      <a href="contact.html" class="btn">Neem contact op</a>
+      <a href="contact.php" class="btn">Neem contact op</a>
     </div>
   </div>
 </section>
@@ -245,30 +256,23 @@
     </div>
     <div class="niveau-table">
       <h3>Nederlandse taallessen op niveau</h3>
-      <div class="niveau-row">
-        <span class="niveau-label">A1 — Beginners</span>
-        <a href="contact.html" class="niveau-btn">Aanmelden</a>
-      </div>
-      <div class="niveau-row">
-        <span class="niveau-label">A2 — Basisniveau</span>
-        <a href="contact.html" class="niveau-btn">Aanmelden</a>
-      </div>
-      <div class="niveau-row">
-        <span class="niveau-label">B1 — Inburgeringsniveau</span>
-        <a href="contact.html" class="niveau-btn">Aanmelden</a>
-      </div>
-      <div class="niveau-row">
-        <span class="niveau-label">B2 — Gevorderd</span>
-        <a href="contact.html" class="niveau-btn">Aanmelden</a>
-      </div>
-      <div class="niveau-row">
-        <span class="niveau-label">DNA — Arbeidsmarkt</span>
-        <a href="contact.html" class="niveau-btn">Aanmelden</a>
-      </div>
-      <div class="niveau-row">
-        <span class="niveau-label">KNM — Maatschappij</span>
-        <a href="contact.html" class="niveau-btn">Aanmelden</a>
-      </div>
+      <?php if (empty($courses)): ?>
+        <div class="niveau-row">
+          <span class="niveau-label">Geen cursussen beschikbaar</span>
+        </div>
+      <?php else: foreach ($courses as $c):
+        $name  = htmlspecialchars($c['name'], ENT_QUOTES, 'UTF-8');
+        $desc  = htmlspecialchars($c['description'], ENT_QUOTES, 'UTF-8');
+        $price = (float)$c['price'];
+        $priceLabel = $price > 0
+            ? ' — € ' . number_format($price, 2, ',', '.')
+            : '';
+      ?>
+        <div class="niveau-row">
+          <span class="niveau-label" title="<?= $desc ?>"><?= $name ?><?= $priceLabel ?></span>
+          <a href="contact.php?cursus=<?= urlencode($c['name']) ?>" class="niveau-btn">Aanmelden</a>
+        </div>
+      <?php endforeach; endif; ?>
       <div class="schedule-box">
         <strong>Ochtend</strong> van 9:00 tot 12:00 uur<br>
         <strong>Middag</strong> van 13:00 tot 16:00 uur<br>
@@ -302,7 +306,7 @@
         <h3>Van taal naar werk</h3>
         <p>Na het behalen van uw taaldiploma helpen wij u ook bij het vinden van een passende baan. Wij werken samen met werkgevers en bemiddelingsbureaus om u de beste kansen op de Nederlandse arbeidsmarkt te bieden.<br><br>
         Onze begeleiders kennen de weg en staan klaar om u te ondersteunen bij elke stap — van cv schrijven tot sollicitatiegesprek.</p>
-        <a href="contact.html" class="btn" style="margin-top:4px;">Meer informatie</a>
+        <a href="contact.php" class="btn" style="margin-top:4px;">Meer informatie</a>
       </div>
     </div>
   </div>
@@ -329,7 +333,7 @@
       </div>
       <div class="contact-cta-box">
         <p>Wilt u zich aanmelden voor een cursus of heeft u een vraag?<br>Vul ons formulier in en wij nemen zo snel mogelijk contact met u op.</p>
-        <a href="contact.html" class="btn" style="font-size:1rem; padding:14px 38px;">Ga naar het formulier</a>
+        <a href="contact.php" class="btn" style="font-size:1rem; padding:14px 38px;">Ga naar het formulier</a>
       </div>
     </div>
   </div>

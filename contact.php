@@ -11,20 +11,19 @@
 <!-- ══════════ HEADER ══════════ -->
 <header>
   <nav>
-    <a href="index.html" class="logo"><img src="assets/img/logo.jpg" alt="missKARIN Logo"></a>
-    <ul class="nav-links">
-      <li><a href="index.html#home">Home</a></li>
-      <li><a href="index.html#over-misskarin">Over missKARIN</a></li>
-      <li><a href="index.html#inburgering">Inburgering</a></li>
-      <li><a href="index.html#integratie">Integratie</a></li>
-      <li><a href="index.html#begeleiding">Begeleiding</a></li>
-      <li><a href="contact.html" style="color:var(--teal); border-bottom:2px solid var(--teal);">Contact</a></li>
+    <a href="index.php" class="logo"><img src="assets/img/logo.jpg" alt="missKARIN Logo"></a>
+    <ul class="nav-links">0?5
+      <li><a href="index.php#home">Home</a></li>
+      <li><a href="index.php#over-misskarin">Over missKARIN</a></li>
+      <li><a href="index.php#inburgering">Inburgering</a></li>
+      <li><a href="index.php#integratie">Integratie</a></li>
+      <li><a href="index.php#begeleiding">Begeleiding</a></li>
+      <li><a href="contact.php" style="color:var(--teal); border-bottom:2px solid var(--teal);">Contact</a></li>
     </ul>
   </nav>
 </header>
-
-<!-- ══════════ MAIN ══════════ -->
-<div class="page-wrapper">
+  
+ <div class="page-wrapper">
 
   <!-- Left: image + overlay text -->
   <div class="form-bg">
@@ -40,12 +39,12 @@
 
   <!-- Right: form -->
   <div class="form-side">
-    <h1>Aanmeldformulier</h1>
+    <h1>Aanmeldformulier</h1> 
 
-    <form id="aanmeld-form" novalidate>
+    <form action="submit.php" id="aanmeld-form" novalidate method="post">
 
       <div class="form-group">
-        <label for="naam">Naam:</label>
+         <label for="naam">Naam:</label>
         <input type="text" id="naam" name="naam" placeholder="Voor- en achternaam" required>
       </div>
 
@@ -114,7 +113,7 @@
       <p>We nemen zo snel mogelijk contact met u op.</p>
     </div>
 
-    <a href="index.html" class="back-link">← Terug naar de hoofdpagina</a>
+    <a href="index.php" class="back-link">← Terug naar de hoofdpagina</a>
   </div>
 
 </div>
@@ -125,19 +124,38 @@
 </footer>
 
 <script>
-  document.getElementById('aanmeld-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    // Basic validation
-    const naam  = document.getElementById('naam').value.trim();
-    const email = document.getElementById('email').value.trim();
-    if (!naam || !email) {
-      alert('Vul minimaal uw naam en e-mailadres in.');
-      return;
-    }
-    // Show thank-you message
-    this.style.display = 'none';
-    document.getElementById('thank-you').style.display = 'block';
-  });
+  (function () {
+    const form = document.getElementById('aanmeld-form');
+    const thanks = document.getElementById('thank-you');
+    if (!form) return;
+
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const originalLabel = submitBtn ? submitBtn.textContent : '';
+      if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Versturen…'; }
+
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        });
+        const data = await res.json().catch(() => ({}));
+
+        if (res.ok && data.ok) {
+          form.style.display = 'none';
+          if (thanks) thanks.style.display = 'block';
+        } else {
+          alert(data.error || 'Er ging iets mis bij het verzenden. Probeer het opnieuw.');
+          if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = originalLabel; }
+        }
+      } catch (err) {
+        alert('Verbinding mislukt. Controleer uw internetverbinding en probeer opnieuw.');
+        if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = originalLabel; }
+      }
+    });
+  })();
 </script>
 
 </body>
