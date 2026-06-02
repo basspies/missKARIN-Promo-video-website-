@@ -146,7 +146,7 @@ try {
 
 <!-- ══════════ IMAGE STRIP ══════════ -->
 <div class="img-strip">
-  <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=1400&h=400&fit=crop&auto=format"
+  <img src="assets/img/website foto miss Karin-8947.jpg"
        alt="missKARIN les in actie"
        onerror="this.outerHTML='<div style=\'width:100%;height:100%;background:#b2ddd8;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1rem;\'>Video / Sfeerfoto</div>'">
   <div class="img-strip-caption">Ontdek onze lessen en de sfeer bij missKARIN</div>
@@ -233,7 +233,7 @@ try {
   <div class="taalles-split">
     <div class="split-img">
       <img class="img-fill"
-           src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=680&h=400&fit=crop&auto=format"
+           src="assets/img/website foto miss Karin-8918.jpg"
            alt="Klassikale taalles"
            style="min-height:320px;"
            onerror="this.outerHTML='<div class=\'placeholder\' style=\'min-height:320px;\'>Taalles klassikaal</div>'">
@@ -249,7 +249,7 @@ try {
   <div class="taalles-split" style="border-top:1px solid var(--border);">
     <div class="split-img">
       <img class="img-fill"
-           src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=680&h=480&fit=crop&auto=format"
+           src="assets/img/website foto miss Karin-8891.jpg"
            alt="Niveau taalles"
            style="min-height:380px;"
            onerror="this.outerHTML='<div class=\'placeholder\' style=\'min-height:380px;\'>Taalles niveaus foto</div>'">
@@ -291,13 +291,13 @@ try {
       <div class="begel-imgs">
         <div class="begel-img">
           <img class="img-fill"
-               src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=400&h=300&fit=crop&auto=format"
+               src="assets/img/website foto miss Karin-8951.jpg"
                alt="Werkbegeleiding groep"
                onerror="this.outerHTML='<div class=\'placeholder\'>Groepsfoto Werkbegeleiding</div>'">
         </div>
         <div class="begel-img">
           <img class="img-fill"
-               src="https://images.unsplash.com/photo-1521737852567-6949f3f9f2b5?w=400&h=300&fit=crop&auto=format"
+               src="assets/img/website foto miss Karin-8904.jpg"
                alt="Partner werkbegeleiding"
                onerror="this.outerHTML='<div class=\'placeholder\'>Werkgever Partner</div>'">
         </div>
