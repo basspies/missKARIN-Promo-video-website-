@@ -53,7 +53,7 @@ try {
       </div>
       <div class="hero-img">
         <img class="img-fill"
-             src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=700&h=380&fit=crop&auto=format"
+             src="assets/img/website foto miss Karin-8953.jpg"
              alt="missKARIN groepsfoto"
              onerror="this.outerHTML='<div class=\'placeholder\'>Groepsfoto missKARIN</div>'">
       </div>

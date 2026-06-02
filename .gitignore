@@ -1,3 +1,4 @@
 /vendor/
 /assets/includes/mail-config.php
 /.claude/
+/assets/includes/conn.php
