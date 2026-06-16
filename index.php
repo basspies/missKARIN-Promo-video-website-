@@ -8,6 +8,8 @@
 </head>
 <body>
 
+<?php include 'assets/includes/conn.php'; ?>
+
 <!-- ══════════ HEADER ══════════ -->
 <header>
   <nav>
@@ -41,6 +43,7 @@
       Neem contact op voor meer info — we vertellen u alles over onze diensten.
     </p>
     <div class="services-grid">
+      <!-- hardcoded — no db table yet -->
       <div class="service-card">
         <h3>Gratis Advies</h3>
         <p>Wij adviseren u gratis welk inburgeringstraject het beste bij u past. We kijken samen naar uw situatie en helpen u beslissen welke stappen u moet nemen om te inburgeren in Nederland.</p>
@@ -74,6 +77,7 @@
 <section id="garanties">
   <div class="container">
     <div class="guarantees-grid">
+      <!-- hardcoded — no db table yet -->
       <div class="guarantee-item">
         <span class="gicon">📶</span>
         <p>100% examengarantie</p>
@@ -119,9 +123,7 @@
       Daarna weet u wat het beste bij uw situatie past.
     </p>
     <div class="prices-grid">
-
       <?php include 'assets/cms/pricecards_output.php'; ?>
-
     </div>
 
     <!-- In-company -->
@@ -156,7 +158,7 @@
     </div>
   </div>
 
-  <!-- Niveau grid -->
+  <!-- Niveau grid — pulled from taallessen table -->
   <div class="taalles-split" style="border-top:1px solid var(--border);">
     <div class="split-img">
       <img class="img-fill"
@@ -167,30 +169,17 @@
     </div>
     <div class="niveau-table">
       <h3>Nederlandse taallessen op niveau</h3>
+
+      <?php
+      $lessons = $conn->query("SELECT * FROM taallessen WHERE price > 0 ORDER BY id ASC")->fetchAll(PDO::FETCH_ASSOC);
+      foreach ($lessons as $lesson):
+      ?>
       <div class="niveau-row">
-        <span class="niveau-label">A1 — Beginners</span>
+        <span class="niveau-label"><?= htmlspecialchars($lesson['name']) ?> — <?= htmlspecialchars($lesson['description']) ?></span>
         <a href="contact.html" class="niveau-btn">Aanmelden</a>
       </div>
-      <div class="niveau-row">
-        <span class="niveau-label">A2 — Basisniveau</span>
-        <a href="contact.html" class="niveau-btn">Aanmelden</a>
-      </div>
-      <div class="niveau-row">
-        <span class="niveau-label">B1 — Inburgeringsniveau</span>
-        <a href="contact.html" class="niveau-btn">Aanmelden</a>
-      </div>
-      <div class="niveau-row">
-        <span class="niveau-label">B2 — Gevorderd</span>
-        <a href="contact.html" class="niveau-btn">Aanmelden</a>
-      </div>
-      <div class="niveau-row">
-        <span class="niveau-label">DNA — Arbeidsmarkt</span>
-        <a href="contact.html" class="niveau-btn">Aanmelden</a>
-      </div>
-      <div class="niveau-row">
-        <span class="niveau-label">KNM — Maatschappij</span>
-        <a href="contact.html" class="niveau-btn">Aanmelden</a>
-      </div>
+      <?php endforeach; ?>
+
       <div class="schedule-box">
         <strong>Ochtend</strong> van 9:00 tot 12:00 uur<br>
         <strong>Middag</strong> van 13:00 tot 16:00 uur<br>
