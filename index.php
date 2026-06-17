@@ -25,6 +25,7 @@ try {
     <a href="#home" class="logo"><img src="assets/img/logo.jpg" alt="missKARIN Logo"></a>
     <ul class="nav-links">
       <li><a href="#home">Home</a></li>
+      <li><a href="#online-cursussen">Online Cursussen</a></li>
       <li><a href="#over-misskarin">Over missKARIN</a></li>
       <li><a href="#inburgering">Inburgering</a></li>
       <li><a href="#integratie">Integratie</a></li>
@@ -33,6 +34,7 @@ try {
     </ul>
   </nav>
 </header>
+
 
 <!-- ══════════ HERO ══════════ -->
 <section id="home">
@@ -53,9 +55,32 @@ try {
       </div>
       <div class="hero-img">
         <img class="img-fill"
-             src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=700&h=380&fit=crop&auto=format"
-             alt="missKARIN groepsfoto"
-             onerror="this.outerHTML='<div class=\'placeholder\'>Groepsfoto missKARIN</div>'">
+        src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=700&h=380&fit=crop&auto=format"
+        alt="missKARIN groepsfoto"
+        onerror="this.outerHTML='<div class=\'placeholder\'>Groepsfoto missKARIN</div>'">
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ══════════ ONLINE CURSUSSEN ══════════ -->
+<section id="online-cursussen" style="padding:52px 20px; background:#f7fbfb;">
+  <div class="container">
+    <h2 class="section-title">Online Cursussen</h2>
+    <p class="section-subtitle">
+      Ontdek onze online cursussen voor NT2 en inburgering. Flexibel leren vanuit huis met persoonlijke begeleiding en heldere lespakketten.
+    </p>
+    <div class="services-grid">
+      <div class="service-card">
+        <h3>Online Taallessen</h3>
+        <p>Volg interactieve lessen op elk niveau, met veel oefening in spreken, lezen, schrijven en luisteren.</p>
+      </div>
+      <div class="service-card">
+        <h3>Inburgering Online</h3>
+        <p>Bereid u voor op het inburgeringsexamen met online modules, oefenmateriaal en begeleiding door erkende docenten.</p>
+      </div>
+      <div class="service-card">
+        <h3>Flexibel Leren</h3>
+        <p>Studeer wanneer het u uitkomt, in uw eigen tempo, met continue ondersteuning via e-mail en videovergaderingen.</p>
       </div>
     </div>
   </div>
