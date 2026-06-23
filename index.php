@@ -25,6 +25,43 @@
   </nav>
 </header>
 
+<section id="home">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-text">
+        <h1>WELKOM<br>bij miss<span>KARIN</span></h1>
+        <ul class="hero-list">
+          <li>Persoonlijk en betaalbaar</li>
+          <li>Kwalitatief bewezen aanpak</li>
+          <li>Kleine klassen, flexibele tijden</li>
+          <li>DNA &amp; KNM combinatie mogelijk</li>
+          <li>Enthousiaste, erkende trainers</li>
+          <li>Examengarantie inbegrepen</li>
+          <li>Milieuvriendelijke aanpak</li>
+        </ul>
+        <a href="contact.html" class="btn">Neem contact op</a>
+      </div>
+      <div class="hero-img">
+        <img class="img-fill"
+             src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=700&h=380&fit=crop&auto=format"
+             alt="missKARIN groepsfoto"
+             onerror="this.outerHTML='<div class=\'placeholder\'>Groepsfoto missKARIN</div>'">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ OVER MISSKARIN ══════════ -->
+<section id="over-misskarin" style="padding:52px 20px; background:#fff;">
+  <div class="container">
+    <h2 class="section-title">Over missKARIN</h2>
+    <p class="section-subtitle">
+      missKARIN biedt kwalitatieve Nederlandse taallessen en inburgeringscursussen aan voor mensen die Nederland beter willen leren kennen. Ons team van ervaren, enthousiaste docenten helpt u stap voor stap vooruit — op uw eigen tempo en niveau.<br><br>
+      Heeft u vragen of weet u niet hoe het NT2-traject in zijn werk gaat? Neem gerust contact op voor een <strong>gratis adviesgesprek</strong>. We vertellen u alles over de mogelijkheden.
+    </p>
+  </div>
+</section>
+
 <!-- ══════════ HERO ══════════ -->
 <h2 class="section-title">Over missKARIN</h2>
 <p class="section-subtitle">
