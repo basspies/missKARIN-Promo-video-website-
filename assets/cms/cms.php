@@ -9,7 +9,6 @@ try {
 } catch (PDOException $e) {
     die("Database error: " . $e->getMessage());
 }
-
 ?>
 <head>
   <meta charset="UTF-8">
@@ -20,9 +19,14 @@ try {
 </head>
 
 <body class="cms-container">
+
   <div class="cms-content">
     <h1>CMS-Dashboard</h1>
-    <p>Here you can manage your content.</p>
+    <p>Hier kun je de taallessen beheren.</p>
+  </div>
+
+  <div class="cms-knop">
+    <a class="btn btn-add" href="add.php">+ Nieuwe les toevoegen</a>
   </div>
 
   <?php foreach ($tables as $tableName): ?>
