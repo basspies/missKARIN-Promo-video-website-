@@ -31,8 +31,7 @@ try {
         <li><a href="#inburgering">Inburgering</a></li>
         <li><a href="#integratie">Integratie</a></li>
         <li><a href="#begeleiding">Begeleiding</a></li>
-        <li><a href="contact.php">Online leseen</a></li>
-        <li><a href="login.php" class="btn" style="padding: 6px 14px; font-size: 0.85rem; margin-left: 10px;">CMS Login</a></li>
+        <li><a href="contact.php">Online lessen</a></li>
       </ul>
     </nav>
   </header>
@@ -282,19 +281,20 @@ try {
           <div class="niveau-row">
             <span class="niveau-label">Geen cursussen beschikbaar</span>
           </div>
-          <?php else: foreach ($courses as $c):
-            $name  = htmlspecialchars($c['name'], ENT_QUOTES, 'UTF-8');
-            $desc  = htmlspecialchars($c['description'], ENT_QUOTES, 'UTF-8');
-            $price = (float)$c['price'];
+        <?php else:
+          foreach ($courses as $c):
+            $name = htmlspecialchars($c['name'], ENT_QUOTES, 'UTF-8');
+            $desc = htmlspecialchars($c['description'], ENT_QUOTES, 'UTF-8');
+            $price = (float) $c['price'];
             $priceLabel = $price > 0
               ? ' — € ' . number_format($price, 2, ',', '.')
               : '';
-          ?>
+            ?>
             <div class="niveau-row">
               <span class="niveau-label" title="<?= $desc ?>"><?= $name ?><?= $priceLabel ?></span>
               <a href="contact.php?cursus=<?= urlencode($c['name']) ?>" class="niveau-btn">Aanmelden</a>
             </div>
-        <?php endforeach;
+          <?php endforeach;
         endif; ?>
         <div class="schedule-box">
           <strong>Ochtend</strong> van 9:00 tot 12:00 uur<br>
@@ -315,13 +315,11 @@ try {
       <div class="begel-grid">
         <div class="begel-imgs">
           <div class="begel-img">
-            <img class="img-fill" src="assets/img/website foto miss Karin-8951.jpg"
-              alt="Werkbegeleiding groep"
+            <img class="img-fill" src="assets/img/website foto miss Karin-8951.jpg" alt="Werkbegeleiding groep"
               onerror="this.outerHTML='<div class=\'placeholder\'>Groepsfoto Werkbegeleiding</div>'">
           </div>
           <div class="begel-img">
-            <img class="img-fill" src="assets/img/website foto miss Karin-8904.jpg"
-              alt="Partner werkbegeleiding"
+            <img class="img-fill" src="assets/img/website foto miss Karin-8904.jpg" alt="Partner werkbegeleiding"
               onerror="this.outerHTML='<div class=\'placeholder\'>Werkgever Partner</div>'">
           </div>
         </div>
