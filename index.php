@@ -32,6 +32,7 @@ try {
         <li><a href="#integratie">Integratie</a></li>
         <li><a href="#begeleiding">Begeleiding</a></li>
         <li><a href="contact.php">Online leseen</a></li>
+        <li><a href="login.php" class="btn" style="padding: 6px 14px; font-size: 0.85rem; margin-left: 10px;">CMS Login</a></li>
       </ul>
     </nav>
   </header>
@@ -72,6 +73,13 @@ try {
         Heeft u vragen of weet u niet hoe het NT2-traject in zijn werk gaat? Neem gerust contact op voor een
         <strong>gratis adviesgesprek</strong>. We vertellen u alles over de mogelijkheden.
       </p>
+
+      <div class="promo-video-container">
+        <video controls class="promo-video">
+          <source src="assets/img/MissKarin PROMO FINAL 01.mp4" type="video/mp4">
+          Uw browser ondersteunt deze video niet.
+        </video>
+      </div>
     </div>
   </section>
 
