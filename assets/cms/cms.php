@@ -25,10 +25,6 @@ try {
     <p>Hier kun je de taallessen beheren.</p>
   </div>
 
-  <div class="cms-knop">
-    <a class="btn btn-add" href="add.php">+ Nieuwe les toevoegen</a>
-  </div>
-
   <?php foreach ($tables as $tableName): ?>
 
     <?php

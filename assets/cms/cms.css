@@ -1,0 +1,451 @@
+/* ============================================================
+   CMS Dashboard — misskarin
+   ============================================================ */
+
+/* ── Reset ──────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ── Base ───────────────────────────────────── */
+body.cms-container {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #f0f2f5;
+  color: #333;
+  min-height: 100vh;
+  padding: 28px 24px;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+/* ── Page title ─────────────────────────────── */
+.cms-content {
+  margin-bottom: 18px;
+}
+
+.cms-content h1 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #2d2d2d;
+  margin-bottom: 8px;
+}
+
+.cms-content p {
+  font-size: 0.85rem;
+  color: #888;
+  margin-bottom: 12px;
+}
+
+/* ── Action button bar ──────────────────────── */
+.cms-knop {
+  margin-bottom: 20px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* ── Table section card ─────────────────────── */
+.cms-table-section {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 1px 8px rgba(0,0,0,0.07);
+  margin-bottom: 24px;
+  overflow-x: auto;
+}
+
+/* scrollable wrapper for bare tables (pricecards.php) */
+.cms-content {
+  overflow-x: auto;
+}
+
+.cms-content table {
+  min-width: 700px;
+}
+
+.cms-table-section h2 {
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: #fff;
+  background: #2cbfaf;
+  padding: 10px 18px;
+  position: sticky;
+  left: 0;
+  min-width: 100%;
+  width: max-content;
+}
+
+/* "No records found" inside a section */
+.cms-table-section > p {
+  padding: 16px 18px;
+  color: #aaa;
+  font-size: 0.85rem;
+}
+
+/* ── Tables — covers BOTH .cms-table AND bare <table> ── */
+.cms-table,
+.cms-content table,
+table {
+  width: 100%;
+  min-width: 700px;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 8px rgba(0,0,0,0.07);
+}
+
+/* thead */
+.cms-table thead tr,
+.cms-content table thead tr,
+table thead tr {
+  background: #f4fcfb;
+  border-bottom: 2px solid #d4f0ec;
+}
+
+.cms-table thead th,
+.cms-content table thead th,
+table thead th {
+  text-align: left;
+  padding: 10px 14px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.7px;
+  color: #2cbfaf;
+  white-space: nowrap;
+}
+
+/* tbody rows */
+.cms-table tbody tr,
+.cms-content table tbody tr,
+table tbody tr {
+  border-bottom: 1px solid #f0f0f0;
+  transition: background 0.12s;
+}
+
+.cms-table tbody tr:last-child,
+.cms-content table tbody tr:last-child,
+table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.cms-table tbody tr:hover,
+.cms-content table tbody tr:hover,
+table tbody tr:hover {
+  background: #f4fcfb;
+}
+
+/* cells */
+.cms-table td,
+.cms-content table td,
+table td {
+  padding: 9px 14px;
+  color: #444;
+  vertical-align: middle;
+  max-width: 260px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ID first column */
+.cms-table td:first-child,
+.cms-content table td:first-child,
+table td:first-child {
+  color: #bbb;
+  font-size: 0.78rem;
+  font-weight: 600;
+  width: 44px;
+}
+
+/* ── Buttons ────────────────────────────────── */
+.btn {
+  display: inline-block;
+  padding: 6px 15px;
+  border-radius: 5px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  transition: background 0.2s, transform 0.12s;
+  white-space: nowrap;
+  line-height: 1.4;
+}
+
+.btn:hover { transform: translateY(-1px); }
+
+.btn-add {
+  background: #2cbfaf;
+  color: #fff;
+  padding: 9px 20px;
+  font-size: 0.85rem;
+}
+.btn-add:hover { background: #22a89a; }
+
+.btn-edit {
+  background: #3b82f6;
+  color: #fff;
+}
+.btn-edit:hover { background: #2563eb; }
+
+.btn-delete {
+  background: #ef4444;
+  color: #fff;
+}
+.btn-delete:hover { background: #dc2626; }
+
+.btn-secondary {
+  background: #fff;
+  color: #555;
+  border: 1.5px solid #ddd;
+  padding: 9px 20px;
+  font-size: 0.85rem;
+}
+.btn-secondary:hover {
+  border-color: #2cbfaf;
+  color: #2cbfaf;
+}
+
+/* ── Action buttons cell ────────────────────── */
+.action-buttons {
+  display: flex;
+  gap: 6px;
+  flex-wrap: nowrap;
+}
+
+/* ── Alerts ─────────────────────────────────── */
+.alert {
+  padding: 11px 16px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.alert-success {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  color: #15803d;
+}
+
+.alert-error {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #dc2626;
+}
+
+/* ── Form card ──────────────────────────────── */
+.cms-form-card,
+.cms-content form {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 1px 8px rgba(0,0,0,0.07);
+  padding: 32px;
+  max-width: 640px;
+  margin-top: 8px;
+}
+
+.cms-form-card h2 {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #2d2d2d;
+  margin-bottom: 22px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #e2f7f5;
+}
+
+/* ── Form elements — bare <label><br><input><br> layout ── */
+/* catches insert_pricecard.php, edit_pricecard.php, insert.php */
+.cms-content form label,
+.form-group label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: #666;
+  margin-top: 14px;
+  margin-bottom: 5px;
+}
+
+/* first label in form needs no top margin */
+.cms-content form label:first-of-type {
+  margin-top: 0;
+}
+
+/* checkbox labels — don't uppercase those */
+.cms-content form label:has(input[type="checkbox"]),
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: #444;
+  cursor: pointer;
+  text-transform: none;
+  letter-spacing: 0;
+  font-weight: 500;
+  margin-top: 16px;
+}
+
+.cms-content form input[type="checkbox"],
+.checkbox-label input[type="checkbox"] {
+  width: 15px;
+  height: 15px;
+  accent-color: #2cbfaf;
+  cursor: pointer;
+  padding: 0;
+  border: none;
+  box-shadow: none;
+}
+
+/* all inputs, selects, textareas */
+.cms-content form input:not([type="checkbox"]):not([type="submit"]),
+.cms-content form textarea,
+.cms-content form select,
+.form-group input,
+.form-group textarea,
+.form-group select {
+  display: block;
+  width: 100%;
+  border: 1.5px solid #e2e2e2;
+  border-radius: 5px;
+  padding: 9px 13px;
+  font-size: 0.88rem;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  color: #333;
+  background: #fafafa;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  margin-bottom: 0;
+}
+
+.cms-content form input:not([type="checkbox"]):not([type="submit"]):focus,
+.cms-content form textarea:focus,
+.cms-content form select:focus,
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #2cbfaf;
+  box-shadow: 0 0 0 3px rgba(44,191,175,0.12);
+  background: #fff;
+}
+
+/* disabled inputs (created_at / updated_at) */
+.cms-content form input:disabled {
+  background: #f0f0f0;
+  color: #aaa;
+  cursor: not-allowed;
+}
+
+.cms-content form textarea,
+.form-group textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* strip the <br> visual gap — handled by label margin now */
+.cms-content form br {
+  display: none;
+}
+
+/* submit button spacing */
+.cms-content form button[type="submit"],
+.cms-content form .btn {
+  margin-top: 20px;
+  margin-right: 8px;
+}
+
+/* ── .form-group (edit.php styled version) ───── */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 16px;
+}
+
+.form-group .hint {
+  font-size: 0.74rem;
+  color: #bbb;
+}
+
+/* two-column row */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.form-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 16px;
+  flex-wrap: wrap;
+}
+
+/* ── Empty state ────────────────────────────── */
+.cms-empty {
+  padding: 32px 20px;
+  text-align: center;
+  color: #aaa;
+  font-size: 0.88rem;
+}
+
+/* ── Responsive ─────────────────────────────── */
+@media (max-width: 700px) {
+  body.cms-container { padding: 16px 12px; }
+
+  .form-row { grid-template-columns: 1fr; }
+
+  .cms-table thead,
+  .cms-content table thead,
+  table thead { display: none; }
+
+  .cms-table tbody tr,
+  .cms-content table tbody tr,
+  table tbody tr {
+    display: block;
+    border: 1px solid #e8e8e8;
+    border-radius: 7px;
+    margin-bottom: 10px;
+    padding: 10px 14px;
+  }
+
+  .cms-table td,
+  .cms-content table td,
+  table td {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    border: none;
+    max-width: 100%;
+    white-space: normal;
+  }
+
+  .cms-table td::before,
+  .cms-content table td::before,
+  table td::before {
+    content: attr(data-label);
+    font-weight: 700;
+    color: #999;
+    font-size: 0.74rem;
+    text-transform: uppercase;
+    flex-shrink: 0;
+    margin-right: 10px;
+  }
+
+  .cms-form-card,
+  .cms-content form { padding: 18px 14px; }
+
+  .action-buttons { flex-wrap: wrap; }
+}
